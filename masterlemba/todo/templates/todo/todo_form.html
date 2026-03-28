@@ -1,0 +1,22 @@
+{% extends "todo/base.html" %}
+{% load crispy_forms_tags %}
+{% block titulo %}
+    {% if todo.pk %}
+        Alteração de tarefas
+    {% else %}
+        Criação de tarefas
+    {% endif %}
+{% endblock titulo  %}
+{% block conteudo %}
+    {% if todo.pk %}
+        <h1>Alterar tarefa</h1>
+    {% else %}
+        <h1>Criar tarefa</h1>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit" class="btn btn-primary ">Enviar</button>
+    </form>
+        
+ {% endblock conteudo %}  

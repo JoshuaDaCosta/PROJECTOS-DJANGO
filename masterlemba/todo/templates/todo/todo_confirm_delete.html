@@ -1,0 +1,14 @@
+{% extends "todo/base.html" %}
+
+{% block titulo %}Remoção de tarefas{% endblock titulo %}
+
+{% block conteudo %}
+ <h1>Apagar tarefa </h1>
+ <p>Deseja mesmo apagar a tarefa "<strong>{{todo.titulo}}</strong>"</p>
+<form method="POST">
+    {% csrf_token %}
+    <button class="btn btn-danger btn-sm" type="submit">Excluir</button>
+    <a href="{%url 'todo_list'%}" class="btn btn-primary btn-sm">Voltar</a>
+
+</form>
+{% endblock conteudo %}

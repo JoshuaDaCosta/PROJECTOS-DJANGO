@@ -1,0 +1,14 @@
+<!-- lemba_faculdade/templates/exe1/index.html -->
+{% extends "exe1/base.html" %}
+
+{% block title %}Criar Post{% endblock %}
+
+{% block content %}
+<h1>Cria um Post</h1>
+<form action="{% url 'salvar_post' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="titulo" placeholder="Título">
+    <textarea name="conteudo" placeholder="Conteúdo"></textarea>
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Livros</title>
+</head>
+<body>
+{% for livro in livros %}
+    <h2>{{ livro.titulo }}</h2>
+    <p>{{ livro.autor }}</p>
+    <p>{{ livro.data_pub }}</p>
+    <a href="{% url 'deletar_livros' livro.id %}"> deletar</a>
+    <a href="{% url 'postar_livros'  %}">adicionar</a>
+    <a href="{% url 'editar_livros'  livro.id %}">editar</a>
+    <hr>
+
+{% empty %}
+    <p>Não há posts ainda.</p>
+    <p> Quer criar livros?</p>
+    <a href="{% url 'postar_livros'  %}">adicionar</a>
+    <a href="{% url 'deletar_livros'  livro.id %}">deletar</a>
+    <a href="{% url 'editar_livros'  livro.id %}">editar</a>
+{% endfor %}
+</body>
+</html>
